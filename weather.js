@@ -2,7 +2,6 @@ const apiKey = "264d736f9d1df8fc9e4a3326b5df2998";
 
 const weather = document.querySelector(".weather");
 
-// 유저 위치 가져오기
 const geoSuccess = (e) => {
 	const lat = e.coords.latitude;
 	const lon = e.coords.longitude;
@@ -21,7 +20,7 @@ const geoSuccess = (e) => {
 };
 
 const geoErr = () => {
-	weather.innerText = "위치 못받아옴";
+	weather.innerText = "위치를 받아오지 못했습니다";
 };
 
 navigator.geolocation.getCurrentPosition(geoSuccess, geoErr);

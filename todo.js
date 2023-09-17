@@ -13,8 +13,6 @@ function deleteToDo(event) {
 
 	toDoList.removeChild(li);
 
-	// filter 함수: array 안에 있는 모든 toDos를 통한다.
-	// 그리고 true인 아이템들만 가지고 새로운 array를 만든다.
 	const cleanToDos = toDos.filter(function (toDo) {
 		return toDo.id !== parseInt(li.id); // string -> int
 	});
@@ -24,8 +22,6 @@ function deleteToDo(event) {
 }
 
 function saveToDos() {
-	// JSON.stringify = 자바스크립트의 object를 string으로 바꿔서
-	// localStorage에 저장할 수 있게 해준다.
 	localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
 
@@ -33,7 +29,6 @@ function paintToDo(text) {
 	const li = document.createElement("li");
 	const delBtn = document.createElement("button");
 	const span = document.createElement("span");
-	// const newID = toDos.length + 1;
 	const newID = idNumbers;
 	idNumbers += 1;
 
@@ -67,9 +62,7 @@ function loadToDos() {
 	const loadedToDos = localStorage.getItem(TODOS_LS);
 
 	if (loadedToDos !== null) {
-		// parse = String값을 JS의 object값으로 변경
 		const parsedToDos = JSON.parse(loadedToDos);
-
 		parsedToDos.forEach(function (toDo) {
 			paintToDo(toDo.text);
 		});

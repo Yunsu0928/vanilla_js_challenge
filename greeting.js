@@ -32,8 +32,6 @@ function loadName() {
 
 	if (currentUser === null) {
 		askForName();
-
-		//localStorage.setItem();
 	} else {
 		paintGreeting(currentUser);
 	}
